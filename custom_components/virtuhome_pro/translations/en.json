@@ -1,0 +1,35 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "VirtuHome Pro",
+        "description": "Adds VirtuHome's extensions: enter your licence key, or start a trial, in VirtuHome → Edit → Extras. Needs VirtuHome 0.18 or later."
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "VirtuHome Pro is already set up.",
+      "already_configured": "VirtuHome Pro is already set up."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "VirtuHome Pro",
+        "description": "Advanced: the server licence keys are checked with and extensions come from. Leave as it is unless VirtuMaps support asks you to change it.",
+        "data": {
+          "licence_server": "Licence server"
+        }
+      }
+    }
+  },
+  "issues": {
+    "licence_not_renewed": {
+      "title": "Your VirtuHome licence hasn't renewed for {days} days",
+      "description": "Home Assistant couldn't renew your VirtuHome licence for {days} days ({error}). The extensions you have keep working; only new versions wait. Check that Home Assistant can reach the internet, then open VirtuHome → Edit → Extras → Check for updates. This goes away once it renews."
+    },
+    "virtuhome_too_old": {
+      "title": "VirtuHome Pro needs a newer VirtuHome",
+      "description": "This is VirtuHome {version}; VirtuHome Pro needs {needed} or later. Update VirtuHome through HACS and restart Home Assistant. Until then the extensions don't load."
+    }
+  }
+}

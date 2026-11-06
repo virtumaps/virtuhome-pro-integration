@@ -1,0 +1,35 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "VirtuHome Pro",
+        "description": "Voegt de uitbreidingen van VirtuHome toe: vul je licentiesleutel in of start een proefperiode in VirtuHome → Bewerken → Extra's. Heeft VirtuHome 0.18 of nieuwer nodig."
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "VirtuHome Pro is al ingesteld.",
+      "already_configured": "VirtuHome Pro is al ingesteld."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "VirtuHome Pro",
+        "description": "Geavanceerd: de server waar licentiesleutels worden gecontroleerd en waar uitbreidingen vandaan komen. Laat hem zoals hij is, tenzij de support van VirtuMaps vraagt om hem te wijzigen.",
+        "data": {
+          "licence_server": "Licentieserver"
+        }
+      }
+    }
+  },
+  "issues": {
+    "licence_not_renewed": {
+      "title": "Je VirtuHome-licentie is al {days} dagen niet vernieuwd",
+      "description": "Home Assistant kon je VirtuHome-licentie al {days} dagen niet vernieuwen ({error}). Je uitbreidingen blijven werken; alleen nieuwe versies wachten. Controleer of Home Assistant het internet kan bereiken, en open dan VirtuHome → Bewerken → Extra's → Zoeken naar updates. Dit verdwijnt zodra hij vernieuwd is."
+    },
+    "virtuhome_too_old": {
+      "title": "VirtuHome Pro heeft een nieuwere VirtuHome nodig",
+      "description": "Dit is VirtuHome {version}; VirtuHome Pro heeft {needed} of nieuwer nodig. Werk VirtuHome bij via HACS en start Home Assistant opnieuw. Tot dan laden de uitbreidingen niet."
+    }
+  }
+}

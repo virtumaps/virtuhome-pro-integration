@@ -1,0 +1,15 @@
+{
+  "domain": "virtuhome_pro",
+  "name": "VirtuHome Pro",
+  "after_dependencies": ["automation", "blueprint", "repairs"],
+  "codeowners": ["@k-eker"],
+  "config_flow": true,
+  "dependencies": ["frontend", "http", "virtuhome", "websocket_api"],
+  "documentation": "https://github.com/virtumaps/virtuhome-pro-integration",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/virtumaps/virtuhome-pro-integration/issues",
+  "requirements": [],
+  "single_config_entry": true,
+  "version": "1.0.0"
+}
