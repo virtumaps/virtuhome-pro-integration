@@ -42,7 +42,7 @@ signature covers them. The integration (`automations.py`, `automation_store.py`)
   for admins only. Extensions run in
   the same page as the core, so the dialog is a rule the core's API keeps, not a wall against
   extension code: the limit on what an extension can make Home Assistant do is the signed blueprints.
-- Writes through Home Assistant's own code, as its editors do (the same calls from 2025.1 to now):
+- Writes through Home Assistant's own code, as its editors do (the same calls from 2025.4 to now):
   the blueprint to `blueprints/automation/virtuhome/<extension>/<id>.yaml` through the automation
   blueprints' `DomainBlueprints`, the automation checked with the automation editor's validator,
   added to `automations.yaml` with Home Assistant's YAML loader and dumper, and reloaded on its own.
