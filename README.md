@@ -56,3 +56,19 @@ licence key or token).
 cd frontend && npm ci && npm run typecheck && npm test && npm run build   # commit the build
 pip install cryptography pytest voluptuous && pytest -q tests
 ```
+
+Releases (maintainers): bump `version` in `custom_components/virtuhome_pro/manifest.json`, move
+`## Unreleased` in `CHANGELOG.md` to it, and once that commit is on `main` publish the release with
+`virtuhome_pro.zip` attached, in one command:
+
+```bash
+git fetch origin --tags
+python3 tools/release_zip.py release vX.Y.Z --target <SHA of the release commit on main> --notes-file notes.md
+```
+
+HACS installs every release from that zip (`zip_release` in `hacs.json`; the files of
+`custom_components/virtuhome_pro/` as git has them, at the zip's root, the same bytes for the same
+commit) and counts its downloads, so don't publish a release without it (from GitHub's website or a plain `gh release create`), and never replace a
+published release's zip. The Release zip workflow checks each published release, attaches the zip
+when one is missing and fails when it differs from the tag. `tools/release_zip.py build vX.Y.Z`
+makes the zip of a tag in `tools/out/`, and `backfill --upload` attaches it to earlier releases.

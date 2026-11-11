@@ -1,0 +1,38 @@
+name: Release zip
+# HACS installs VirtuHome Pro from virtuhome_pro.zip on each release (zip_release in hacs.json) and
+# counts its downloads. `tools/release_zip.py release` attaches it before the release is published;
+# this checks that every published release has it and that it is exactly the tag's
+# custom_components/virtuhome_pro/, attaches it when a release went out without it, and fails when
+# the attached one differs. Run it by hand for an older release with its tag.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag, such as v1.0.0"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-zip-${{ github.event.release.tag_name || inputs.tag }}
+  cancel-in-progress: false
+
+jobs:
+  zip:
+    if: github.repository == 'virtumaps/virtuhome-pro-integration'
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+    steps:
+      # the tool from the commit the workflow runs on (the tag, or main when run by hand), the zip's
+      # files from the tag
+      - uses: actions/checkout@v4
+      - run: git fetch --no-tags --depth=1 origin "+refs/tags/${TAG}:refs/tags/${TAG}"
+      - name: Check virtuhome_pro.zip, or attach it
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/release_zip.py ensure "$TAG"
