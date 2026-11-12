@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+- Installs from a zip attached to each release, so HACS shows how often it has been downloaded.
+  Nothing else changes in how it works.
+- Needs Home Assistant 2025.4 or later, as VirtuHome does; HACS won't offer it to an older one.
+
 ## 1.0.0
 
 - First release. The licence key, free trials, downloading and checking the extensions, and the
